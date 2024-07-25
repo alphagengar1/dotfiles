@@ -14,7 +14,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/bubbles.toml)"
+  eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/amro.toml)"
 fi
 
 alias zen="$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
@@ -151,6 +151,9 @@ unalias fzfpre 2>/dev/null
 alias fzfpre="fzf --preview 'bat --style=plain --color=always --line-range :500 {}'"
 alias fzfopen="nvim \$(fzf --preview 'bat --style=plain --color=always --line-range :500 --paging=always {}')"
 
+alias organize_cp='(cd ~/downloads/code/CP/inProgres && ~/downloads/code/CP/bashScript/organize_cp.sh)'
+alias rename_files='(cd ~/downloads/code/CP/inProgres && ~/downloads/code/CP/bashScript/rename_files.sh)'
+alias usaco_rename='(cd ~/downloads/code/CP/inProgres && ~/downloads/code/CP/bashScript/usaco_rename.sh)'
 
 
 # Compilation flags
@@ -174,7 +177,7 @@ alias spt="spotify"
 alias rap="spt play uri spotify:playlist:4ynhsxjhZAHoSVjE9CHs5R"
 alias doom="spt play uri spotify:playlist:1B8SREqJkh5UX98uakN1yf"
 alias psych="spt play uri spotify:playlist:698tVc5dH5gSxsXu4oVGiV"
-alias matrix="cmatrix -ba -u 2 -s -m"
+alias matrix="cmatrix -u 4 -s -a"
 eval $(thefuck --alias) 
 eval $(thefuck --alias fk)
 

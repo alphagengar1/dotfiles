@@ -55,3 +55,8 @@ type = "prompt"
   background = 'transparent'
   template = '## '
 
+[transient_prompt]
+  foreground = "#CD4277"
+  style = "plain"
+  template = "#  "
+  type = "text"
