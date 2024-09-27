@@ -14,7 +14,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/amro.toml)"
+  eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/emodipt_extend.toml)"
 fi
 
 alias zen="$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
@@ -155,6 +155,10 @@ alias organize_cp='(cd ~/downloads/code/CP/inProgress && ~/downloads/code/CP/bas
 alias rename_files='(cd ~/downloads/code/CP/inProgress && ~/downloads/code/CP/bashScript/rename_files.sh)'
 alias usaco_rename='(cd ~/downloads/code/CP/inProgress && ~/downloads/code/CP/bashScript/usaco_rename.sh)'
 
+alias clear_dir='function _clear_dir() {
+  rm ./*
+}; _clear_dir'
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -178,27 +182,13 @@ alias rap="spt play uri spotify:playlist:4ynhsxjhZAHoSVjE9CHs5R"
 alias doom="spt play uri spotify:playlist:1B8SREqJkh5UX98uakN1yf"
 alias psych="spt play uri spotify:playlist:698tVc5dH5gSxsXu4oVGiV"
 alias matrix="cmatrix -u 4 -s -a"
+alias connect_pwn="ssh -i ~/Downloads/Code/CyberSec/pwn/key hacker@pwn.college"
 eval $(thefuck --alias) 
 eval $(thefuck --alias fk)
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+source ~/.venv/bin/activate
 # Created by `pipx` on 2024-07-06 17:26:10
 export PATH="$PATH:/Users/swrj/.local/bin"
-
-alias nvim-python="NVIM_APPNAME=PythonNvim nvim"
-
-function nvims() {
-  items=("Normal" "PythonNvim")
-  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
-  if [[ -z $config ]]; then
-    echo "Nothing selected"
-    return 0
-  elif [[ $config == "Normal" ]]; then
-    config=""
-  fi
-  NVIM_APPNAME=$config nvim $@
-}
-
-bindkey -s ^a "nvims\n"
