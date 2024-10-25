@@ -177,10 +177,6 @@ alias clear_dir='function _clear_dir() {
 
 alias CP="cd ~/downloads/code/CP"
 alias CY="cd ~/downloads/code/cybersec"
-alias spt="spotify"
-alias rap="spt play uri spotify:playlist:4ynhsxjhZAHoSVjE9CHs5R"
-alias doom="spt play uri spotify:playlist:1B8SREqJkh5UX98uakN1yf"
-alias psych="spt play uri spotify:playlist:698tVc5dH5gSxsXu4oVGiV"
 alias matrix="cmatrix -u 4 -s -a"
 alias connect_pwn="ssh -i ~/Downloads/Code/CyberSec/pwn/key hacker@pwn.college"
 eval $(thefuck --alias) 
@@ -190,5 +186,7 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source ~/.venv/bin/activate
+
 # Created by `pipx` on 2024-07-06 17:26:10
 export PATH="$PATH:/Users/swrj/.local/bin"
+export PATH=$PATH:/Users/swrj/.spicetify
