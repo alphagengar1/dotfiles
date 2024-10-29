@@ -8,7 +8,8 @@ zen_on() {
              --set volume_icon drawing=off \
              --set volume drawing=off \
              --set spotify.title drawing=off \
-             --set spotify.artist drawing=off
+             --set spotify.artist drawing=off \
+             --set spotify.indicator drawing=off
 }
 
 zen_off() {
@@ -20,7 +21,8 @@ zen_off() {
              --set volume_icon drawing=on \
              --set volume drawing=on \
              --set spotify.title drawing=on \
-             --set spotify.artist drawing=on
+             --set spotify.artist drawing=on \
+             --set spotify.indicator drawing=off
 }
 
 if [ "$1" = "on" ]; then
