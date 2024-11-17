@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 # Battery is here bcause the ICON_COLOR doesn't play well with all background colors
 
