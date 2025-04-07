@@ -28,3 +28,6 @@ yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Karabiner-Elements Settings$" manage=off
 yabai -m rule --add app="^Discord$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Messages$" manage=off

@@ -3,8 +3,9 @@
 # Fix for nested functions limit
 FUNCNEST=1000
 
-# Skip all compilation checks
+# Skip all compilation checks but manually initialize compinit
 skip_global_compinit=1
+autoload -Uz compinit && compinit
 
 # Essential path setup
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -18,7 +19,6 @@ setopt share_history hist_expire_dups_first hist_ignore_dups hist_verify
 
 # Load theme immediately but efficiently
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  # Cache oh-my-posh init for faster loading
   cache_file="${HOME}/.cache/oh-my-posh-init.zsh"
   if [[ ! -f "$cache_file" ]] || [[ ! -s "$cache_file" ]] || [[ $(find "$cache_file" -mtime +1) ]]; then
     mkdir -p "${HOME}/.cache"
@@ -47,18 +47,12 @@ COMPLETION_WAITING_DOTS="true"
 # Load Oh My Zsh with minimal features
 source $ZSH/oh-my-zsh.sh
 
-# Async load additional features
-function async_load_plugins() {
-  # Remove from precmd after first run
-  precmd_functions=("${(@)precmd_functions:#async_load_plugins}")
-  
-  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  
-  # Load zoxide
-  eval "$(zoxide init zsh)"
-}
-precmd_functions+=(async_load_plugins)
+# Load autocomplete and syntax highlighting immediately
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Load zoxide
+eval "$(zoxide init zsh)"
 
 # Key bindings
 bindkey "^[[A" history-search-backward
@@ -108,5 +102,9 @@ if [[ -f ~/.venv/bin/activate ]] && [[ -z "${VIRTUAL_ENV}" ]]; then
   source ~/.venv/bin/activate
 fi
 
+. "$HOME/.cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
+
 # Profiling end (uncomment to debug startup time)
 # zprof
+
+export PATH=$PATH:/Users/swrj/.spicetify
