@@ -90,8 +90,16 @@ return {
   compile_directory = ".",
   compile_command = {
     cpp = {
-      exec = "g++-14",
-      args = { "-std=c++17", "-Wall", "-DLOCAL", "$(FNAME)", "-o", "$(FNOEXT)" },
+      exec = "/opt/homebrew/bin/g++-15",
+      args = {
+        "-std=gnu++17",
+        "-O2",
+        "-Wall",
+        "-DLOCAL",
+        "$(FNAME)",
+        "-o",
+        "$(FNOEXT)"
+      },
     },
     rust = { exec = "rustc", args = { "$(FNAME)" } },
     java = { exec = "javac", args = { "$(FNAME)" } },
