@@ -2,3 +2,5 @@
 .config/github-copilot/
 .config/pulse/
 .config/raycast/
+__pycache__/
+*.pyc
