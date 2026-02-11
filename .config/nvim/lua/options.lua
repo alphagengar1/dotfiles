@@ -12,6 +12,10 @@ opt.cursorline = true
 opt.cursorlineopt = "both"
 opt.number = true
 opt.relativenumber = true
+opt.termguicolors = true
+opt.signcolumn = "yes"
+opt.showmode = false
+opt.fillchars = { eob = "~" }
 opt.hidden = true
 opt.updatetime = 100
 opt.mouse = "a"
