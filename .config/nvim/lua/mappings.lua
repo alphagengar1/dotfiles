@@ -16,7 +16,7 @@ M.general = {
   { "n", ";",          ":",                       { desc = "CMD enter command mode" } },
   { "n", "<leader>n",  "<cmd> set nu! <CR>",      { desc = "Toggle line number" } },
   { "n", "<leader>b",  "<cmd> enew <CR>",         { desc = "New buffer" } },
-  { "n", "<leader>ch", "<cmd> NvCheatsheet <CR>", { desc = "Mapping cheatsheet" } },
+  { "n", "<leader>ch", function() require("utils.cheatsheet").toggle() end, { desc = "Cheatsheet toggle" } },
   { "n", "<C-c>",      "<cmd> %y+ <CR>",          { desc = "Copy whole file" } },
   { "i", "jk",         "<ESC>",                   { desc = "Exit insert mode" } },
 }
