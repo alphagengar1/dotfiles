@@ -11,6 +11,9 @@ return {
     "ruff",
     "pyright",
 
+    -- dap
+    "codelldb",
+
     -- lua
     "lua-language-server",
     "stylua",
