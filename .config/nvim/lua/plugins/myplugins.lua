@@ -136,12 +136,26 @@ local lazy_plugins = {
     end,
   },
 
+  -- Which-key (organized keybinds)
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("which-key").setup({
+        plugins = { spelling = true },
+        window = { border = "rounded" },
+      })
+      require("configs.whichkey")
+    end,
+  },
+
   -- Debugger (lazy)
   {
     "mfussenegger/nvim-dap",
     module = { "dap", "dapui" },
     dependencies = {
       "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
       "theHamsta/nvim-dap-virtual-text",
       "jay-babu/mason-nvim-dap.nvim",
     },

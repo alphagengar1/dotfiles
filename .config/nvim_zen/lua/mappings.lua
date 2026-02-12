@@ -14,7 +14,16 @@ M.general = {
   { "n", ";", ":", { desc = "CMD enter command mode" } },
   { "n", "<leader>n", "<cmd> set nu! <CR>", { desc = "Toggle line number" } },
   { "n", "<leader>b", "<cmd> enew <CR>", { desc = "New buffer" } },
-  { "n", "<leader>ch", "<cmd>Telescope keymaps<CR>", { desc = "Cheatsheet (Telescope)" } },
+  {
+    "n",
+    "<leader>ch",
+    function()
+      local builtin = require("telescope.builtin")
+      local themes = require("telescope.themes")
+      builtin.keymaps(themes.get_dropdown({ previewer = false, layout_config = { width = 0.7 } }))
+    end,
+    { desc = "Cheatsheet (Search)" },
+  },
   { "n", "<C-c>", "<cmd> %y+ <CR>", { desc = "Copy whole file" } },
   { "i", "jk", "<ESC>", { desc = "Exit insert mode" } },
 }
