@@ -38,7 +38,6 @@ local bubbles_theme = {
 }
 -- Define custom highlight groups for the component with a transparent background
 vim.api.nvim_set_hl(0, 'CompetitestBackground', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'CompetitestLeftSeparator', { fg = colors.comp_bg, bg = colors.comp_sep_bg })
 vim.api.nvim_set_hl(0, 'CompetitestRightSeparator', { fg = colors.comp_bg, bg = colors.comp_sep_bg })
 vim.api.nvim_set_hl(0, 'CompetitestTitle', { fg = colors.comp_fg, bg = colors.comp_bg, bold = true })
 
@@ -54,9 +53,8 @@ local function competitest_title()
 
   -- Window width and separator/title lengths
   local total_width = vim.api.nvim_win_get_width(0)
-  local left_sep = ''
-  local right_sep = ''
-  local content = left_sep .. ' ' .. title .. ' ' .. right_sep
+  local right_sep = '▓▒░'
+  local content = '' .. ' ' .. title .. ' ' .. right_sep
   local content_length = #content
 
   -- Calculate padding
@@ -65,8 +63,7 @@ local function competitest_title()
 
   -- Return padded and styled content with a colored background
   return table.concat({
-    '%#CompetitestBackground#' .. string.rep(' ', left_padding),
-    '%#CompetitestLeftSeparator#' .. left_sep,
+    '%#CompetitestBackground#' .. " ",
     '%#CompetitestTitle# ' .. title .. ' ',
     '%#CompetitestRightSeparator#' .. right_sep,
     '%#CompetitestBackground#' .. string.rep(' ', right_padding),
