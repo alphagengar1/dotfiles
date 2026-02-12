@@ -23,7 +23,6 @@ opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.splitbelow = true
 opt.splitright = true
-opt.showtabline = 2
 opt.hidden = true
 opt.updatetime = 100
 opt.mouse = "a"
