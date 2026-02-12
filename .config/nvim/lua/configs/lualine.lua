@@ -220,6 +220,29 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {},
   },
-  tabline = {},
+  tabline = {
+    lualine_a = {
+      {
+        "buffers",
+        show_filename_only = true,
+        hide_filename_extension = false,
+        show_modified_status = true,
+        mode = 0,
+        max_length = vim.o.columns * 0.7,
+        filetype_names = {
+          NvimTree = "File Explorer",
+        },
+        symbols = {
+          modified = " ●",
+          alternate_file = "#",
+          directory = "",
+        },
+        separator = { left = "", right = "" },
+      },
+    },
+    lualine_z = {
+      { "tabs", separator = { left = "", right = "" } },
+    },
+  },
   extensions = {},
 }

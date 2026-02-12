@@ -33,7 +33,7 @@ M = {
     },
 
     tabufline = {
-      enabled = true,
+      enabled = false,
       lazyload = true,
       order = { "treeOffset", "buffers", "tabs", "btns" },
       modules = nil,
