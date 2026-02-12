@@ -1,19 +1,17 @@
 -- Close CompetiTest UI windows when a normal window is closed
 if not vim.g._competitest_autocmd_set then
   vim.g._competitest_autocmd_set = true
-  vim.api.nvim_create_autocmd("WinClosed", {
+  vim.api.nvim_create_autocmd("QuitPre", {
     callback = function()
-      vim.schedule(function()
-        for _, w in ipairs(vim.api.nvim_list_wins()) do
-          local ok, b = pcall(vim.api.nvim_win_get_buf, w)
-          if ok then
-            local bft = vim.bo[b].filetype
-            if bft and bft:match("CompetiTest") then
-              pcall(vim.api.nvim_win_close, w, true)
-            end
+      for _, w in ipairs(vim.api.nvim_list_wins()) do
+        local ok, b = pcall(vim.api.nvim_win_get_buf, w)
+        if ok then
+          local bft = vim.bo[b].filetype
+          if bft and bft:match("CompetiTest") then
+            pcall(vim.api.nvim_win_close, w, true)
           end
         end
-      end)
+      end
     end,
   })
 end
