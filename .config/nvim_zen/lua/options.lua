@@ -23,6 +23,28 @@ opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.splitbelow = true
 opt.splitright = true
+
+-- Aesthetic UI tweaks
+opt.list = true
+opt.listchars = {
+  tab = "▸ ",
+  trail = "·",
+  extends = "»",
+  precedes = "«",
+  nbsp = "␣",
+}
+opt.fillchars = {
+  eob = "~",
+  vert = "│",
+  fold = " ",
+  foldopen = "",
+  foldclose = "",
+  foldsep = " ",
+  diff = "╱",
+}
+opt.linebreak = true
+opt.breakindent = true
+opt.breakindentopt = "shift:2"
 opt.hidden = true
 opt.updatetime = 100
 opt.mouse = "a"
