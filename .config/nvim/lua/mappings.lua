@@ -87,31 +87,6 @@ M.yankbank = {
   { "n", "<leader>pc", "<cmd>:YankBankClearDB<CR>", { desc = "Clear YankBank History" } },
 }
 
--- DAP (debugging)
-M.dap = {
-  { "n", "<leader>db", function() require("dap").toggle_breakpoint() end, { desc = "DAP Toggle Breakpoint" } },
-  { "n", "<leader>dc", function() require("dap").continue() end, { desc = "DAP Continue" } },
-  { "n", "<leader>dl", function() require("dap").run_last() end, { desc = "DAP Run Last" } },
-  { "n", "<leader>do", function() require("dap").step_over() end, { desc = "DAP Step Over" } },
-  { "n", "<leader>di", function() require("dap").step_into() end, { desc = "DAP Step Into" } },
-  { "n", "<leader>dO", function() require("dap").step_out() end, { desc = "DAP Step Out" } },
-  { "n", "<leader>dr", function() require("dap").repl.open() end, { desc = "DAP REPL" } },
-  { "n", "<leader>dx", function() require("dap").terminate() end, { desc = "DAP Terminate" } },
-  {
-    "n",
-    "<leader>du",
-    function()
-      local ok, dapui = pcall(require, "dapui")
-      if ok then
-        dapui.toggle({ reset = true })
-      else
-        vim.notify("DAP UI not available. Run :Lazy sync", vim.log.levels.WARN)
-      end
-    end,
-    { desc = "DAP UI Toggle" },
-  },
-}
-
 -- Apply all mappings
 local function load_mappings()
   for _, category in pairs(M) do

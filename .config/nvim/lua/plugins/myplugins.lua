@@ -136,21 +136,6 @@ local lazy_plugins = {
     end,
   },
 
-  -- Debugger (lazy)
-  {
-    "mfussenegger/nvim-dap",
-    module = { "dap", "dapui" },
-    dependencies = {
-      "rcarriga/nvim-dap-ui",
-      "nvim-neotest/nvim-nio",
-      "theHamsta/nvim-dap-virtual-text",
-      "jay-babu/mason-nvim-dap.nvim",
-    },
-    config = function()
-      require("configs.dap")
-    end,
-  },
-
 }
 
 return lazy_plugins

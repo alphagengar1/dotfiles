@@ -6,13 +6,9 @@ return {
 
     -- python
     "black",
-    "debugpy",
     "ruff-lsp",
     "ruff",
     "pyright",
-
-    -- dap
-    "codelldb",
 
     -- lua
     "lua-language-server",
