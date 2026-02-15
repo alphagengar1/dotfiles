@@ -103,7 +103,7 @@ M.dap = {
     function()
       local ok, dapui = pcall(require, "dapui")
       if ok then
-        dapui.toggle()
+        dapui.toggle({ reset = true })
       else
         vim.notify("DAP UI not available. Run :Lazy sync", vim.log.levels.WARN)
       end
