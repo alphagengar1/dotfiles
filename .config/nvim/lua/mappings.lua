@@ -97,7 +97,19 @@ M.dap = {
   { "n", "<leader>dO", function() require("dap").step_out() end, { desc = "DAP Step Out" } },
   { "n", "<leader>dr", function() require("dap").repl.open() end, { desc = "DAP REPL" } },
   { "n", "<leader>dx", function() require("dap").terminate() end, { desc = "DAP Terminate" } },
-  { "n", "<leader>du", function() require("dapui").toggle() end, { desc = "DAP UI Toggle" } },
+  {
+    "n",
+    "<leader>du",
+    function()
+      local ok, dapui = pcall(require, "dapui")
+      if ok then
+        dapui.toggle()
+      else
+        vim.notify("DAP UI not available. Run :Lazy sync", vim.log.levels.WARN)
+      end
+    end,
+    { desc = "DAP UI Toggle" },
+  },
 }
 
 -- Apply all mappings

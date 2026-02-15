@@ -1,21 +1,41 @@
-local mason_dap = require("mason-nvim-dap")
+local function safe_require(name)
+  local ok, mod = pcall(require, name)
+  if not ok then
+    vim.schedule(function()
+      vim.notify("DAP: failed to load " .. name .. ". Run :Lazy sync", vim.log.levels.WARN)
+    end)
+    return nil
+  end
+  return mod
+end
+
+local mason_dap = safe_require("mason-nvim-dap")
+if not mason_dap then
+  return
+end
 
 mason_dap.setup({
   ensure_installed = { "codelldb", "debugpy" },
   automatic_installation = true,
 })
 
-local dap = require("dap")
-local dapui = require("dapui")
+local dap = safe_require("dap")
+if not dap then
+  return
+end
+local dapui = safe_require("dapui")
 
-require("nvim-dap-virtual-text").setup({
-  commented = true,
-})
+local dapvt = safe_require("nvim-dap-virtual-text")
+if dapvt then
+  dapvt.setup({ commented = true })
+end
 
-dapui.setup({
-  icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
-  controls = { enabled = true },
-})
+if dapui then
+  dapui.setup({
+    icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
+    controls = { enabled = true },
+  })
+end
 
 -- Adapters (from Mason)
 local mason_bin = vim.fn.stdpath("data") .. "/mason/bin"
@@ -76,14 +96,16 @@ dap.configurations.python = {
 
 -- Auto open/close UI
 
-dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open()
-end
+if dapui then
+  dap.listeners.after.event_initialized["dapui_config"] = function()
+    dapui.open()
+  end
 
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
-end
+  dap.listeners.before.event_terminated["dapui_config"] = function()
+    dapui.close()
+  end
 
-dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
+  dap.listeners.before.event_exited["dapui_config"] = function()
+    dapui.close()
+  end
 end
