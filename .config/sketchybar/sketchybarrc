@@ -1,10 +1,8 @@
 #!/usr/bin/env zsh
 
-SKETCHYBAR_CONFIG="$HOME/.config/sketchybar"
+SKETCHYBAR_CONFIG="${SKETCHYBAR_CONFIG:-$HOME/.config/sketchybar}"
 
-# This is used to determine if a monitor is used
-# Since the notch is -only- on the laptop, if a monitor isn't used,
-# then that means the internal display is used ¯\_(ツ)_/¯
+# Determine if the main display is built-in (notched laptop).
 MAIN_DISPLAY=$(system_profiler SPDisplaysDataType | grep -B 3 'Main Display:' | awk '/Display Type/ {print $3}')
 
 if [[ $MAIN_DISPLAY = "Built-in" ]]; then

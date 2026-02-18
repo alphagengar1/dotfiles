@@ -1,10 +1,9 @@
 #!/usr/bin/env zsh
 
-FONT_FACE="JetBrainsMono Nerd Font"
-PLUGIN_DIR="$HOME/.config/sketchybar/plugins-desktop"
-PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
+SKETCHYBAR_CONFIG="${SKETCHYBAR_CONFIG:-$HOME/.config/sketchybar}"
+source "$SKETCHYBAR_CONFIG/lib/common.sh"
 
-SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
+PLUGIN_DIR="$SKETCHYBAR_CONFIG/plugins-desktop"
 
 sketchybar --bar \
     height=32 \
@@ -41,7 +40,7 @@ sketchybar --add item front_app left \
     background.padding_left=0 \
     background.padding_right=0 \
     icon.y_offset=1 \
-    label.drawing=no \
+    label.drawing=off \
     script="$PLUGIN_SHARED_DIR/front_app.sh" \
     --add item front_app.separator left \
     --set front_app.separator \
@@ -52,7 +51,7 @@ sketchybar --add item front_app left \
     icon.padding_left=0 \
     icon.padding_right=0 \
     icon.y_offset=1 \
-    label.drawing=no \
+    label.drawing=off \
     --add item front_app.name left \
     --set front_app.name \
     background.color=0x00000000 \
