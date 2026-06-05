@@ -1,6 +1,7 @@
 # Dotfiles (GNU Stow)
 
-This repo mirrors `$HOME`. The repo root is the Stow package. Use Stow from this directory to (re)link everything into `~`.
+This repo mirrors `$HOME`. The repo root is the Stow package. 
+Use Stow from this directory to (re)link everything into `~`.
 
 ## Quick start
 ```sh
@@ -47,7 +48,3 @@ stow -R -t /Users/swrj .
 ```sh
 brew install stow
 ```
-
-## Notes
-- This repo is private and intended to restore my setup on new machines.
-- The repo root is the only Stow package (`.`).
