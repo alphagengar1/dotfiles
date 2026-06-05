@@ -47,9 +47,8 @@ COMPLETION_WAITING_DOTS="true"
 # Load Oh My Zsh with minimal features
 source $ZSH/oh-my-zsh.sh
 
-# Load autocomplete and syntax highlighting immediately
+# Load autocomplete immediately. Syntax highlighting is sourced at the end so it sees aliases/functions.
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Load zoxide
 eval "$(zoxide init zsh)"
@@ -74,11 +73,16 @@ alias organize_cp='(cd ~/downloads/code/CP/inProgress && ~/downloads/code/CP/bas
 alias rename_files='(cd ~/downloads/code/CP/inProgress && ~/downloads/code/CP/bashScript/rename_files.sh)'
 alias usaco_rename='(cd ~/downloads/code/CP/inProgress && ~/downloads/code/CP/bashScript/usaco_rename.sh)'
 
-# Lazy load heavy commands
-alias fuck='eval $(thefuck $(fc -ln -1)); history -R'
 alias python="python3"
 
 alias nvim-zen="NVIM_APPNAME=nvim_zen nvim"
+
+# for fake claude code
+export OPENAI_API_KEY="50285322d833418fbade42593c72d102.CtjvYi0L44aGYw0P"
+export OPENAI_BASE_URL="https://openrouter.ai"
+export ANTHROPIC_API_KEY="50285322d833418fbade42593c72d102.CtjvYi0L44aGYw0P"
+export ANTHROPIC_BASE_URL="https://api.z.ai/api/anthropic"
+
 
 function nvims() {
   items=("default" "Zen")
@@ -109,4 +113,16 @@ pyvenv() {
 export PATH=$PATH:/Users/swrj/.spicetify
 
 export NVM_DIR="$HOME/.nvm"
-. $(brew --prefix nvm)/nvm.sh
+_load_nvm() {
+  unset -f nvm node npm npx corepack _load_nvm
+  . "$(brew --prefix nvm)/nvm.sh"
+}
+
+nvm() { _load_nvm; nvm "$@"; }
+node() { _load_nvm; node "$@"; }
+npm() { _load_nvm; npm "$@"; }
+npx() { _load_nvm; npx "$@"; }
+corepack() { _load_nvm; corepack "$@"; }
+
+# Keep syntax highlighting last so aliases/functions defined above are treated as valid commands.
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
