@@ -1,7 +1,18 @@
 # Keybinds
 
+This file is the index for keyboard/mouse remaps. Source files live in this repo;
+generated app snapshots and automatic backups should stay out of git.
+
 **Legend**
 hyper = shift + ctrl + cmd + alt (Caps Lock remapped in Karabiner)
+
+## Sources of truth
+
+- `~/.skhdrc` -> `~/dotfiles/.skhdrc`
+- `~/.config/karabiner` -> `~/dotfiles/.config/karabiner`
+- `~/.hammerspoon` -> `~/dotfiles/.hammerspoon`
+- Arc active keybindings: `~/Library/Application Support/Arc/StorableKeyBindings.json`
+- macOS system hotkeys: `~/Library/Preferences/com.apple.symbolichotkeys.plist`
 
 **skhd (yabai)**
 - `hyper + j` -> focus window south

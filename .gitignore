@@ -1,3 +1,10 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Generated app/runtime state that does not belong in portable dotfiles.
+.config/karabiner/automatic_backups/
+.config/pulse/
+.config/github-copilot/**/chat-*-sessions/
+.config/github-copilot/**/chat-agent-sessions/
+.config/github-copilot/**/*.lck

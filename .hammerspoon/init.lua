@@ -1,0 +1,2 @@
+-- Hammerspoon entrypoint lives here so ~/.hammerspoon can be a dotfiles symlink.
+-- Add window/hotkey automation below when needed.

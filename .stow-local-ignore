@@ -1,0 +1,10 @@
+^/\.git
+^/\.gitignore$
+^/\.stow-local-ignore$
+^/README\.md$
+^/KEYBINDS\.md$
+^/\.config/pulse(/.*)?$
+^/\.config/karabiner/automatic_backups(/.*)?$
+^/\.config/github-copilot/.*/chat-.*-sessions(/.*)?$
+^/\.config/github-copilot/.*/chat-agent-sessions(/.*)?$
+^/\.config/github-copilot/.*\.lck$
