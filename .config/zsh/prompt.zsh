@@ -15,13 +15,13 @@ unset _omp_config _omp_cache
 
 prompt() {
   local theme_dir="$HOME/.config/ohmyposh"
+  local -a themes
   local theme
 
-  theme=$(
-    find "$theme_dir" -maxdepth 1 -name "*.toml" -exec basename {} .toml \; 2>/dev/null |
-      sort |
-      fzf --prompt="Choose a prompt theme: " --height=~50% --layout=reverse --border --exit-0
-  )
+  themes=("$theme_dir"/*.toml(N:t:r))
+  (( ${#themes[@]} == 0 )) && return 1
+
+  theme=$(printf "%s\n" "${themes[@]}" | sort | fzf --prompt="Choose a prompt theme: " --height=~50% --layout=reverse --border --exit-0)
 
   [[ -z "$theme" ]] && return 0
   eval "$(oh-my-posh init zsh --config "$theme_dir/$theme.toml")"
