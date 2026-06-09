@@ -22,6 +22,7 @@ _source_zsh_config integrations
 _source_zsh_config nvm
 _source_zsh_config keybindings
 _source_zsh_config aliases
+_source_zsh_config navigation
 _source_zsh_config functions
 _source_zsh_config syntax-highlighting
 
