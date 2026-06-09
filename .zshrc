@@ -17,6 +17,7 @@ _source_zsh_config local
 _source_zsh_config completion
 _source_zsh_config oh-my-zsh
 _source_zsh_config prompt
+_source_zsh_config transient
 _source_zsh_config integrations
 _source_zsh_config nvm
 _source_zsh_config keybindings
