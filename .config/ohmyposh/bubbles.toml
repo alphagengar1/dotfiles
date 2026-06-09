@@ -11,7 +11,7 @@ final_space = true
   foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}#7FD5EA{{end}}']
 
 [transient_prompt]
-  template = '❯ '
+  template = "\n❯ "
   background = 'transparent'
   foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}#7FD5EA{{end}}']
 

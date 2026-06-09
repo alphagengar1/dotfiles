@@ -1,4 +1,4 @@
-_omp_config="$HOME/.config/ohmyposh/emodipt.toml"
+_omp_config="$HOME/.config/ohmyposh/zen.toml"
 
 if [[ "$TERM_PROGRAM" != "Apple_Terminal" ]] && command -v oh-my-posh >/dev/null 2>&1 && [[ -r "$_omp_config" ]]; then
   _omp_cache="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-posh/init.zsh"

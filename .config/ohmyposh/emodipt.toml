@@ -6,6 +6,11 @@ final_space = true
   foreground = '#E06C75'
   background = 'transparent'
 
+[transient_prompt]
+  template = "\n❯ "
+  foreground = '#E06C75'
+  background = 'transparent'
+
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
