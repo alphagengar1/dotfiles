@@ -13,9 +13,9 @@ M.global = {
     "n",
     "<leader>fm",
     function()
-      vim.lsp.buf.format({ async = true })
+      require("conform").format({ async = true, lsp_format = "fallback" })
     end,
-    { desc = "LSP format" },
+    { desc = "Format buffer" },
   },
   {
     "n",

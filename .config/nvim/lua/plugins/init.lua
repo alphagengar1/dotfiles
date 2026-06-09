@@ -22,6 +22,8 @@ return {
         "java",
         "python",
         "bash",
+        "rust",
+        "toml",
       },
     },
   },

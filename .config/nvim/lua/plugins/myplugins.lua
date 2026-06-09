@@ -101,6 +101,14 @@ local lazy_plugins = {
 
   -- Dev tools
   {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    opts = function()
+      return require("configs.conform")
+    end,
+  },
+  {
     "ptdewey/yankbank-nvim",
     dependencies = "kkharji/sqlite.lua",
     event = "VeryLazy",

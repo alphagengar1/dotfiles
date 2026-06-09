@@ -1,16 +1,18 @@
 local options = {
   formatters_by_ft = {
+    c = { "clang_format" },
+    cpp = { "clang_format" },
     lua = { "stylua" },
-    -- css = { "prettier" },
-    -- html = { "prettier" },
-    -- Adding formatters for C++, Python, and Java
-    python = { "black", "isort" }, -- Using Black for code formatting and isort for import sorting
+    python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
+    rust = { "rustfmt" },
+    sh = { "shfmt" },
+    bash = { "shfmt" },
+    zsh = { "shfmt" },
     java = { "google-java-format" },
   },
   format_on_save = {
-    -- These options will be passed to conform.format()
     timeout_ms = 500,
-    lsp_fallback = true,
+    lsp_format = "fallback",
   },
 }
 

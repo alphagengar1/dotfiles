@@ -71,18 +71,53 @@ end
 
 local servers = {
   clangd = {
-    filetypes = { "cpp" },
+    filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
     init_options = {
       clangdFileStatus = true,
     },
     cmd = {
       "clangd",
-      "--query-driver=/opt/homebrew/bin/g++-15",
+      "--background-index",
+      "--clang-tidy",
+      "--completion-style=detailed",
+      "--header-insertion=iwyu",
+      "--query-driver=/opt/homebrew/bin/g++*,/opt/homebrew/bin/clang++*,/usr/bin/clang++",
     },
   },
   bashls = { filetypes = { "sh", "bash", "zsh" } },
-  ruff = { filetypes = { "python" } },
-  pyright = { filetypes = { "python" } },
+  ruff = {
+    filetypes = { "python" },
+    init_options = {
+      settings = {
+        organizeImports = true,
+      },
+    },
+  },
+  pyright = {
+    filetypes = { "python" },
+    settings = {
+      pyright = {
+        disableOrganizeImports = true,
+      },
+      python = {
+        analysis = {
+          autoSearchPaths = true,
+          diagnosticMode = "workspace",
+          useLibraryCodeForTypes = true,
+        },
+      },
+    },
+  },
+  rust_analyzer = {
+    filetypes = { "rust" },
+    settings = {
+      ["rust-analyzer"] = {
+        cargo = { allFeatures = true },
+        check = { command = "clippy" },
+        procMacro = { enable = true },
+      },
+    },
+  },
   jdtls = { filetypes = { "java" } },
   lua_ls = {
     settings = {

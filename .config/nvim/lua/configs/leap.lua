@@ -6,7 +6,9 @@ M.keys = {
   { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
 }
 
-M.opts = {}
+M.opts = {
+  safe_labels = {},
+}
 
 function M.setup(opts)
   local leap = require("leap")
@@ -16,9 +18,9 @@ function M.setup(opts)
     leap.opts[k] = v
   end
 
-  leap.add_default_mappings(true)
-  vim.keymap.del({ "x", "o" }, "x")
-  vim.keymap.del({ "x", "o" }, "X")
+  vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap-forward)", { desc = "Leap forward to" })
+  vim.keymap.set({ "n", "x", "o" }, "S", "<Plug>(leap-backward)", { desc = "Leap backward to" })
+  vim.keymap.set({ "n", "x", "o" }, "gs", "<Plug>(leap-from-window)", { desc = "Leap from windows" })
 end
 
 return M

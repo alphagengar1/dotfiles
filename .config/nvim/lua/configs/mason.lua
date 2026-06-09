@@ -5,10 +5,11 @@ return {
     "clang-format",
 
     -- python
-    "black",
-    "ruff-lsp",
     "ruff",
     "pyright",
+
+    -- rust
+    "rust-analyzer",
 
     -- lua
     "lua-language-server",
@@ -16,6 +17,8 @@ return {
 
     -- bash
     "bash-language-server",
+    "shellcheck",
+    "shfmt",
 
     -- web dev
     "html-lsp",
